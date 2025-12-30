@@ -1,0 +1,42 @@
+{
+  "name": "investment-scanner-infrastructure",
+  "version": "1.0.0",
+  "description": "AWS CDK Infrastructure for Investment Scanner - Cost-Optimized MVP",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk",
+    "deploy": "cdk deploy --all",
+    "deploy:dev": "cdk deploy --all --context environment=dev",
+    "deploy:staging": "cdk deploy --all --context environment=staging",
+    "deploy:prod": "cdk deploy --all --context environment=prod",
+    "diff": "cdk diff",
+    "synth": "cdk synth",
+    "destroy": "cdk destroy --all"
+  },
+  "keywords": [
+    "aws",
+    "cdk",
+    "serverless",
+    "investment",
+    "scanner"
+  ],
+  "author": "Wilfred",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.10.6",
+    "aws-cdk": "^2.117.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.117.0",
+    "constructs": "^10.3.0",
+    "dotenv": "^16.3.1"
+  }
+}
