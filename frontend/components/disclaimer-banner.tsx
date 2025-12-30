@@ -40,9 +40,11 @@ export function DisclaimerBanner() {
               <Button size="sm" variant="outline" onClick={handleDismiss}>
                 I Understand
               </Button>
-              <Button size="sm" variant="ghost" asChild>
-                <a href="/legal/disclaimer">Read Full Disclaimer</a>
-              </Button>
+              <a href="/legal/disclaimer">
+                <Button size="sm" variant="ghost">
+                  Read Full Disclaimer
+                </Button>
+              </a>
             </div>
           </div>
           <button

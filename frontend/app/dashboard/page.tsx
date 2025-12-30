@@ -81,30 +81,51 @@ export default function DashboardPage() {
         ))}
       </div>
 
-      {/* Charts and Signals */}
-      <div className="grid gap-4 md:grid-cols-2">
-        {/* Portfolio Performance Chart */}
-        <Card className="md:col-span-1">
-          <CardHeader>
-            <CardTitle>Portfolio Performance</CardTitle>
-            <CardDescription>Your investment growth over time</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <PortfolioChart />
-          </CardContent>
-        </Card>
+      {/* Portfolio Performance Chart - Full Width */}
+      <Card>
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <div>
+              <CardTitle>Portfolio Performance: £10k → £100k Journey</CardTitle>
+              <CardDescription>Your investment growth over time with AI projection</CardDescription>
+            </div>
+            <div className="text-right">
+              <p className="text-sm text-gray-600">Total Gain</p>
+              <p className="text-2xl font-bold text-emerald-600">
+                +{formatPercentage(portfolioData.gainLossPercentage)}
+              </p>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <PortfolioChart />
+          <div className="mt-4 grid grid-cols-3 gap-4 text-center border-t pt-4">
+            <div>
+              <p className="text-sm text-gray-600">Starting Value</p>
+              <p className="text-lg font-semibold">{formatCurrency(portfolioData.initialInvestment)}</p>
+            </div>
+            <div>
+              <p className="text-sm text-gray-600">Current Value</p>
+              <p className="text-lg font-semibold text-emerald-600">{formatCurrency(portfolioData.totalValue)}</p>
+            </div>
+            <div>
+              <p className="text-sm text-gray-600">Target Value</p>
+              <p className="text-lg font-semibold text-emerald-600">{formatCurrency(portfolioData.targetValue)}</p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
-        {/* Recent AI Signals */}
-        <Card className="md:col-span-1">
-          <CardHeader>
-            <CardTitle>Recent AI Signals</CardTitle>
-            <CardDescription>Latest buy/sell recommendations</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <RecentSignals />
-          </CardContent>
-        </Card>
-      </div>
+      {/* Recent AI Signals */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Recent AI Signals</CardTitle>
+          <CardDescription>Latest buy/sell recommendations</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <RecentSignals />
+        </CardContent>
+      </Card>
 
       {/* Goal Progress */}
       <Card>
