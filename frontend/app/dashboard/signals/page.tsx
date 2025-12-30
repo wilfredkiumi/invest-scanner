@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Bot, TrendingUp, TrendingDown, Info, Globe } from 'lucide-react'
 import { formatCurrency, formatPercentage } from '@/lib/utils'
+import Link from 'next/link'
 
 const allSignals = [
   // United States - High Confidence
@@ -646,7 +647,9 @@ function SignalCard({ signal }: { signal: typeof allSignals[0] }) {
         <div className="flex items-start justify-between">
           <div className="flex-1">
             <div className="flex items-center gap-2 flex-wrap">
-              <CardTitle className="text-2xl">{signal.ticker}</CardTitle>
+              <Link href={`/dashboard/stock/${signal.ticker}`}>
+                <CardTitle className="text-2xl hover:text-emerald-600 transition-colors cursor-pointer">{signal.ticker}</CardTitle>
+              </Link>
               <Badge variant={signal.type === 'BUY' ? 'default' : signal.type === 'SELL' ? 'destructive' : 'secondary'}>
                 {signal.type}
               </Badge>
@@ -742,7 +745,9 @@ function SignalCard({ signal }: { signal: typeof allSignals[0] }) {
               'Hold Position'
             )}
           </Button>
-          <Button variant="outline">View Chart</Button>
+          <Link href={`/dashboard/stock/${signal.ticker}`}>
+            <Button variant="outline">View Details</Button>
+          </Link>
           <Button variant="ghost">Ignore</Button>
         </div>
       </CardContent>

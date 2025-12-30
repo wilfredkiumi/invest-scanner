@@ -35,33 +35,35 @@ export function RecentSignals() {
   return (
     <div className="space-y-4">
       {signals.map((signal) => (
-        <div key={signal.ticker} className="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50 transition-colors">
-          <div className="flex items-center gap-3">
-            {signal.type === 'BUY' ? (
-              <div className="p-2 bg-emerald-50 rounded-lg">
-                <ArrowUpRight className="h-5 w-5 text-emerald-600" />
+        <Link href={`/dashboard/stock/${signal.ticker}`} key={signal.ticker}>
+          <div className="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+            <div className="flex items-center gap-3">
+              {signal.type === 'BUY' ? (
+                <div className="p-2 bg-emerald-50 rounded-lg">
+                  <ArrowUpRight className="h-5 w-5 text-emerald-600" />
+                </div>
+              ) : (
+                <div className="p-2 bg-red-50 rounded-lg">
+                  <ArrowDownRight className="h-5 w-5 text-red-600" />
+                </div>
+              )}
+              <div>
+                <p className="font-semibold">{signal.ticker}</p>
+                <p className="text-sm text-muted-foreground">
+                  {signal.confidence}% confidence
+                </p>
               </div>
-            ) : (
-              <div className="p-2 bg-red-50 rounded-lg">
-                <ArrowDownRight className="h-5 w-5 text-red-600" />
-              </div>
-            )}
-            <div>
-              <p className="font-semibold">{signal.ticker}</p>
+            </div>
+            <div className="text-right">
+              <p className={`font-semibold ${signal.type === 'BUY' ? 'text-emerald-600' : 'text-red-600'}`}>
+                {signal.type}
+              </p>
               <p className="text-sm text-muted-foreground">
-                {signal.confidence}% confidence
+                {signal.return > 0 ? '+' : ''}{signal.return}% expected
               </p>
             </div>
           </div>
-          <div className="text-right">
-            <p className={`font-semibold ${signal.type === 'BUY' ? 'text-emerald-600' : 'text-red-600'}`}>
-              {signal.type}
-            </p>
-            <p className="text-sm text-muted-foreground">
-              {signal.return > 0 ? '+' : ''}{signal.return}% expected
-            </p>
-          </div>
-        </div>
+        </Link>
       ))}
       <Link href="/dashboard/signals">
         <Button className="w-full" variant="outline">
