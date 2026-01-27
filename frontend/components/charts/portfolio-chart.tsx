@@ -48,7 +48,7 @@ export function PortfolioChart() {
             borderRadius: '8px',
             padding: '12px'
           }}
-          formatter={(value: number) => [formatCurrency(value), 'Portfolio Value']}
+          formatter={(value: number | undefined) => [value ? formatCurrency(value) : '', 'Portfolio Value']}
           labelStyle={{ fontWeight: 'bold', marginBottom: '4px' }}
         />
 

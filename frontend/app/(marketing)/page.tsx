@@ -1,14 +1,13 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { MarketingHeader } from "@/components/marketing/header"
-import { MarketingFooter } from "@/components/marketing/footer"
 import {
+  TrendingUp,
   Bot,
   Shield,
   BarChart3,
   Bell,
   Globe,
-  TrendingUp,
+  CheckCircle,
   ArrowRight
 } from "lucide-react"
 
@@ -30,7 +29,7 @@ const features = [
   },
   {
     name: "Multi-Market Support",
-    description: "Track investments across US, UK, and African markets (Kenya NSE, Nigeria) with full currency conversion.",
+    description: "Track investments across US and UK markets with full currency conversion support.",
     icon: Globe,
   },
   {
@@ -65,9 +64,7 @@ const testimonials = [
 
 export default function HomePage() {
   return (
-    <>
-      <MarketingHeader />
-      <main>
+    <div>
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-emerald-50 to-white">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
@@ -110,8 +107,8 @@ export default function HomePage() {
             <div className="grid grid-cols-1 gap-8 text-center sm:grid-cols-2 lg:grid-cols-4">
               <div className="flex flex-col gap-2">
                 <dt className="text-sm font-medium text-gray-600">Markets Monitored</dt>
-                <dd className="text-4xl font-bold text-gray-900">5+</dd>
-                <p className="text-sm text-gray-500">US, UK & African Exchanges</p>
+                <dd className="text-4xl font-bold text-gray-900">2</dd>
+                <p className="text-sm text-gray-500">US & UK Exchanges</p>
               </div>
               <div className="flex flex-col gap-2">
                 <dt className="text-sm font-medium text-gray-600">Stocks Analyzed</dt>
@@ -302,8 +299,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      </main>
-      <MarketingFooter />
-    </>
+    </div>
   )
 }

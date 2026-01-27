@@ -82,7 +82,7 @@ export function StockPriceChart({ ticker }: { ticker: string }) {
               borderRadius: '8px',
               padding: '12px'
             }}
-            formatter={(value: number) => [formatCurrency(value), 'Price']}
+            formatter={(value: number | undefined) => [value ? formatCurrency(value) : '', 'Price']}
             labelStyle={{ fontWeight: 'bold', marginBottom: '4px' }}
           />
           <Area
@@ -124,7 +124,7 @@ export function StockPriceChart({ ticker }: { ticker: string }) {
               borderRadius: '8px',
               padding: '8px'
             }}
-            formatter={(value: number) => [`${(value / 1000000).toFixed(1)}M`, 'Volume']}
+            formatter={(value: number | undefined) => [value ? `${(value / 1000000).toFixed(1)}M` : '', 'Volume']}
             labelStyle={{ fontWeight: 'bold', fontSize: '11px' }}
           />
           <Area
